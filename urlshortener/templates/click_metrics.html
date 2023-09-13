@@ -1,0 +1,36 @@
+<!-- click_metrics.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Click Metrics</title>
+</head>
+<body>
+    <h1>Click Metrics for {{ short_url }}</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Timestamp</th>
+                <th>User Agent</th>
+                <th>Platform</th>
+                <th>Browser</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for click in clicks %}
+            <tr>
+                <td>{{ click.timestamp }}</td>
+                <td>{{ click.user_agent }}</td>
+                <td>{{ click.platform }}</td>
+                <td>{{ click.browser }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">No clicks recorded for this URL.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
